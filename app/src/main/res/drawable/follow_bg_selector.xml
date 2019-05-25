@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/activity_status_bg" android:state_selected="false" />
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="4dp" />
+            <solid android:color="@color/dark" />
+        </shape>
+    </item>
+
+    <item android:drawable="@drawable/activity_status_bg" />
+
+</selector>

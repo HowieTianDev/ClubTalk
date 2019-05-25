@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.howietian.clubtalk.views.circle.CommentWidget xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/comment_widget"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="5dp"
+    android:paddingTop="5dp"
+    android:paddingRight="5dp">
+
+</com.howietian.clubtalk.views.circle.CommentWidget>

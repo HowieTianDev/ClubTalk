@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">社团说</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="desc">活动主题：本次晚会节目投标题材不限，联系生活实际，符合当代学生的精神风貌，有积极向上的精神姿态。\n海选对象：全体在校高一、高二学生。\n活动时间：\n报名截止时间：2016年12月28日\n活动预期时间：2017年01月05日</string>
+</resources>

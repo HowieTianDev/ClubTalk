@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.howietian.clubtalk">
+    <!-- 允许联网 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 获取GSM（2g）、WCDMA（联通3g）等网络状态的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 获取wifi网络状态的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 获取sd卡写的权限，用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 允许读取手机状态 用于创建BmobInstallation -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name=".ClubApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".my.follow.FollowUserListActivity"></activity>
+        <activity android:name=".my.dynamic.MyDynamicActivity" />
+        <activity android:name=".my.personpage.PersonPageActivity" />
+        <activity android:name=".my.club.ApplyClubActivity" />
+        <activity android:name=".my.work.WorkListActivity" />
+        <activity android:name=".search.SearchActivity" />
+        <activity android:name=".home.joined.JoinedUserActivity" />
+        <activity android:name=".TestActivity" />
+        <activity android:name=".home.event.detail.EventDetailActivity" />
+        <activity android:name=".publish.ChooseTypeActivity" />
+        <activity android:name=".publish.PublishDynamicActivity" />
+        <activity android:name=".publish.PublishEventActivity" />
+        <activity android:name=".my.modify.ModifyActivity" />
+        <activity android:name=".entrance.forgetpwd.ForgetPwdActivity" />
+        <activity android:name=".entrance.register.RegisterActivity" />
+        <activity android:name=".entrance.login.LoginActivity" />
+        <activity android:name=".entrance.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask">
+
+        </activity>
+
+        <provider
+            android:name="cn.bmob.v3.util.BmobContentProvider"
+            android:authorities="com.howietian.clubtalk.BmobContentProvider" />
+    </application>
+
+</manifest>
