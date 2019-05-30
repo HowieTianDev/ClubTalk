@@ -87,6 +87,7 @@ public class HomeFragment extends BaseFragment<HomeFragmentViewModel> implements
 
     private void findView() {
         mSearchText = getView().findViewById(R.id.text_search);
+        mSearchText.setText("搜索你想要的活动~");
         mPublishLayout = getView().findViewById(R.id.layout_publish);
 
         mBanner = getView().findViewById(R.id.banner_home);

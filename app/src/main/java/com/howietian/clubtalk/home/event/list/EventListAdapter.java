@@ -102,7 +102,7 @@ public class EventListAdapter extends DelegateAdapter.Adapter<EventListAdapter.E
             mCommentCountText.setText(event.getCommentCount() + "条评论");
             mTitleText.setText(event.getTitle());
 
-            if (event.getType() == Event.TYPE_ELEGANT) {
+            if (event.getType() == Event.TYPE_ELEGANT || event.getType() == Event.TYPE_BANNER) {
                 mStatusLayout.setVisibility(View.GONE);
             } else {
                 mStatusLayout.setVisibility(View.VISIBLE);

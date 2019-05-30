@@ -17,7 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".my.follow.FollowUserListActivity"></activity>
+        <activity android:name=".search.feedback.SearchFeedActivity"></activity>
+        <activity android:name=".publish.ChooseFeedEventActivity" />
+        <activity android:name=".my.follow.FollowUserListActivity" />
         <activity android:name=".my.dynamic.MyDynamicActivity" />
         <activity android:name=".my.personpage.PersonPageActivity" />
         <activity android:name=".my.club.ApplyClubActivity" />
@@ -42,9 +44,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleTask">
-
-        </activity>
+            android:launchMode="singleTask" />
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"

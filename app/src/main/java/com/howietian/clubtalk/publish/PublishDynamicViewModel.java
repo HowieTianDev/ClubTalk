@@ -27,10 +27,6 @@ public class PublishDynamicViewModel extends BaseViewModel {
             toast("动态不能为空哦");
             return;
         }
-        if (TextUtils.isEmpty(dynamic.getType())) {
-            toast("类型不能为空哦");
-            return;
-        }
 
         showProgressText("正在发布...");
         showProgressDialog(true);

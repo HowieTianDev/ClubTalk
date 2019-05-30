@@ -70,7 +70,7 @@ public class RegisterViewModel extends BaseViewModel {
 
         MyCounter counter = new MyCounter(60000, 1000);
         counter.start();
-        BmobSMS.requestSMSCode(phone, "", new QueryListener<Integer>() {
+        BmobSMS.requestSMSCode(phone, "社团说", new QueryListener<Integer>() {
             @Override
             public void done(Integer integer, BmobException e) {
                 if (e == null) {

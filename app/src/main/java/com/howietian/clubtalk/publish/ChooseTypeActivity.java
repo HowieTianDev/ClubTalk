@@ -1,5 +1,6 @@
 package com.howietian.clubtalk.publish;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,8 +28,10 @@ public class ChooseTypeActivity extends BaseActivity implements TypeAdapter.OnTy
     }
 
     public static final String EXTRA_TYPE = "type";
+    private static final int CODE_REQUEST_EVENT = 0;
 
-    private String[] mTypes = new String[]{"学校：你的学校发生了什么...", "挑战：打卡活动", "情感：恋爱、情侣、暗恋、喜欢...", "体育：足球、篮球、跑步、健身...", "娱乐：音乐、影视、游戏、动漫...", "文艺：阅读、摄影...", "生活：萌宠、美食...", "比赛：竞赛、辩论、商赛...", "学习：高数、大物、英语..."};
+    private String[] mTypes = new String[]{"反馈：来说下对活动的反馈吧", "挑战：打卡活动", "情感：恋爱、情侣、暗恋、喜欢...", "体育：足球、篮球、跑步、健身...", "娱乐：音乐、影视、游戏、动漫...", "文艺：阅读、摄影...", "生活：萌宠、美食...", "比赛：竞赛、辩论、大创...", "学习：高数、大物、英语..."};
+    List<String> types = new ArrayList<>();
 
     private Toolbar mToolbar;
     private RecyclerView mRecyclerView;
@@ -63,7 +66,7 @@ public class ChooseTypeActivity extends BaseActivity implements TypeAdapter.OnTy
 
     private void initRecyclerView() {
         mLinearLayoutManager = new LinearLayoutManager(this);
-        List<String> types = new ArrayList<>();
+
         for (int i = 0; i < mTypes.length; i++) {
             types.add(mTypes[i]);
         }
@@ -74,9 +77,28 @@ public class ChooseTypeActivity extends BaseActivity implements TypeAdapter.OnTy
 
     @Override
     public void onClick(String type) {
-        Intent intent = new Intent();
-        intent.putExtra(EXTRA_TYPE, type.split("：")[0]);
-        setResult(RESULT_OK, intent);
-        finish();
+        if (type.equals(mTypes[0])) {
+            ChooseFeedEventActivity.launchForResult(this, CODE_REQUEST_EVENT);
+        } else {
+            Intent intent = new Intent();
+            intent.putExtra(EXTRA_TYPE, type.split("：")[0]);
+            setResult(RESULT_OK, intent);
+            finish();
+        }
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == CODE_REQUEST_EVENT) {
+            if (data != null) {
+                Bundle bundle = data.getBundleExtra(ChooseFeedEventActivity.EXTRA_BUNDLE);
+                Intent intent = new Intent();
+                intent.putExtra(ChooseFeedEventActivity.EXTRA_BUNDLE, bundle);
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        }
     }
 }

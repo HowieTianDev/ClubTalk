@@ -139,7 +139,7 @@ public class CircleTopListAdapter extends RecyclerView.Adapter<CircleTopListAdap
     }
 
     private void initData() {
-        String[] circlesTitle = {"全部", "学校", "挑战", "情感", "体育", "娱乐", "文艺", "生活", "比赛", "学习"};
+        String[] circlesTitle = {"全部", "反馈", "挑战", "情感", "体育", "娱乐", "文艺", "生活", "比赛", "学习"};
         String[] circlesColor = {"#03dac6", "#018786", "#03dac6", "#018786", "#03dac6", "#018786", "#03dac6", "#018786", "#03dac6", "#018786"};
 
         circleCardList = new ArrayList<>();

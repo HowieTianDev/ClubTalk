@@ -33,6 +33,7 @@ import com.howietian.clubtalk.my.personpage.PersonPageActivity;
 import com.howietian.clubtalk.publish.PublishDynamicActivity;
 import com.howietian.clubtalk.publish.PublishEventActivity;
 import com.howietian.clubtalk.search.SearchActivity;
+import com.howietian.clubtalk.search.feedback.SearchFeedActivity;
 import com.howietian.clubtalk.views.CommentDialog;
 import com.howietian.clubtalk.views.LoadingAdapter;
 
@@ -113,6 +114,7 @@ public class CircleFragment extends BaseFragment<CircleViewModel> implements Cir
     private void findView() {
         mTopBarLayout = getView().findViewById(R.id.layout_top_bar);
         mSearchText = getView().findViewById(R.id.text_search);
+        mSearchText.setText("搜索社团反馈~");
         mPublishLayout = getView().findViewById(R.id.layout_publish);
         mSwipeLayout = getView().findViewById(R.id.layout_swipe_circle);
         mRecyclerView = getView().findViewById(R.id.recycler_circle_list);
@@ -201,7 +203,7 @@ public class CircleFragment extends BaseFragment<CircleViewModel> implements Cir
     @Override
     public void onClick(View view) {
         if (view == mSearchText) {
-            SearchActivity.launch(getActivity());
+            SearchFeedActivity.launch(getActivity());
         } else if (view == mPublishLayout) {
             showPublishMenu(view);
         }

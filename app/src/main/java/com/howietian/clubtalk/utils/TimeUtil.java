@@ -87,6 +87,9 @@ public class TimeUtil {
     public static String getJoinStatus(Event event) {
         String status = ON_JOIN;
         String deadLine = event.getDeadLine();
+        if(TextUtils.isEmpty(deadLine)){
+            return "";
+        }
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date deadline = dateFormat.parse(deadLine);

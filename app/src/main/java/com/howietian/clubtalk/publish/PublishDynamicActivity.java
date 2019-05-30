@@ -7,6 +7,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -51,6 +52,7 @@ public class PublishDynamicActivity extends BaseActivity<PublishDynamicViewModel
     private ImageView mPhotoImage;
 
     private List<Uri> mImageUriList = null;
+    private String mClubName;
 
 
     public static void launch(Context context) {
@@ -109,8 +111,27 @@ public class PublishDynamicActivity extends BaseActivity<PublishDynamicViewModel
     }
 
     private void publish() {
+
+        String eventName = "";
+        Dynamic dynamic = new Dynamic();
+
         String content = mContentEdit.getText().toString();
+
         String type = mTypeText.getText().toString();
+        if (type.contains("：")) {
+            String[] titles = type.split("：");
+            if (titles != null && titles.length > 1) {
+                eventName = titles[1];
+                dynamic.setEventName(eventName);
+                type = titles[0];
+                content = "# " + eventName + "\n\n" + content;
+            }
+        }
+
+        if (!TextUtils.isEmpty(mClubName)) {
+            dynamic.setClubName(mClubName);
+        }
+
         String[] imagePaths = null;
         if (mImageUriList != null && mImageUriList.size() > 0) {
             imagePaths = new String[mImageUriList.size()];
@@ -119,7 +140,6 @@ public class PublishDynamicActivity extends BaseActivity<PublishDynamicViewModel
             }
         }
 
-        Dynamic dynamic = new Dynamic();
         dynamic.setContent(content);
         dynamic.setType(type);
         dynamic.setUser(BmobUser.getCurrentUser(User.class));
@@ -195,6 +215,17 @@ public class PublishDynamicActivity extends BaseActivity<PublishDynamicViewModel
                     break;
                 case REQUEST_CODE_CHOOSE_TYPE:
                     String type = data.getStringExtra(ChooseTypeActivity.EXTRA_TYPE);
+                    Bundle bundle = data.getBundleExtra(ChooseFeedEventActivity.EXTRA_BUNDLE);
+                    if (bundle != null) {
+                        type = bundle.getString(ChooseTypeActivity.EXTRA_TYPE);
+                        String eventName = bundle.getString(ChooseFeedEventActivity.EXTRA_EVENT);
+                        mClubName = bundle.getString(ChooseFeedEventActivity.EXTRA_CLUB);
+
+                        if (!TextUtils.isEmpty(eventName)) {
+                            type = type + "：" + eventName;
+                        }
+                    }
+
                     mTypeText.setText(type);
                     break;
             }

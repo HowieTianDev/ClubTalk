@@ -23,6 +23,10 @@ public class Dynamic extends BmobObject {
 
     private CommentListDataHelper mCommentDataHelper;
 
+    // 动态针对反馈类型
+    private String eventName;
+    private String clubName;
+
     private Boolean isLiked = false;
 
     public Dynamic(){
@@ -109,5 +113,21 @@ public class Dynamic extends BmobObject {
 
     public void setLiked(Boolean liked) {
         isLiked = liked;
+    }
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
+    public String getClubName() {
+        return clubName;
+    }
+
+    public void setClubName(String clubName) {
+        this.clubName = clubName;
     }
 }

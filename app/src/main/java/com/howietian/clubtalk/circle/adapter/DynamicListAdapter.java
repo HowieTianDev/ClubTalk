@@ -1,6 +1,7 @@
 package com.howietian.clubtalk.circle.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -198,8 +199,12 @@ public class DynamicListAdapter extends DelegateAdapter.Adapter<DynamicListAdapt
             } else {
                 mCommentRecycler.setVisibility(View.GONE);
             }
-
-            mLabelText.setText(dynamic.getType());
+            if(!TextUtils.isEmpty(dynamic.getType())){
+                mLabelText.setVisibility(View.VISIBLE);
+                mLabelText.setText(dynamic.getType());
+            }else {
+                mLabelText.setVisibility(View.GONE);
+            }
 
             mLikeImage.setOnClickListener(new View.OnClickListener() {
                 @Override

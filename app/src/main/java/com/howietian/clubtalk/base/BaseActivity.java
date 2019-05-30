@@ -82,7 +82,8 @@ public abstract class BaseActivity<VM extends ViewModel> extends AppCompatActivi
     protected VM bindViewModel() {
         Type type = getClass().getGenericSuperclass();
         if (type != null && type instanceof ParameterizedType) {
-            return ViewModelProviders.of(this).get((Class<VM>) ((ParameterizedType) type).getActualTypeArguments()[0]);
+            return ViewModelProviders.of(this)
+                    .get((Class<VM>) ((ParameterizedType) type).getActualTypeArguments()[0]);
         }
         return null;
     }
